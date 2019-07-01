@@ -14,7 +14,8 @@ describe Oystercard do
 
   context '#top_up' do
     it 'allows the balance of the card to be increased by set amount' do
-      expect(subject.top_up(10)).to eq 10
+      subject.top_up(10)
+      expect(subject.balance).to eq 10
     end
 
     it 'prevents card from being topped beyond £90 limit' do
@@ -45,7 +46,7 @@ describe Oystercard do
 
     it 'remembers the entry station at touch in' do
       subject.top_up(10)
-      expect(subject.touch_in(station).entry_station).to eq station 
+      expect(subject.touch_in(station).entry_station).to eq station
     end
   end
 
